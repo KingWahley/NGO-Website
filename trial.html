@@ -1,0 +1,548 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>UI/UX Design Process</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", system-ui, sans-serif;
+        background: #f2f2f2;
+        color: #333;
+      }
+
+      .process {
+        padding: 60px;
+        max-width: 1400px;
+        margin: auto;
+      }
+      .process-video {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        max-width: 520px;
+        aspect-ratio: 16 / 9;
+        border-radius: 18px;
+        overflow: hidden;
+        background: #000;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .process-video video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Play button */
+      .play-btn {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(0, 0, 0, 0.65);
+        color: #fff;
+        font-size: 36px;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .play-btn:hover {
+        transform: scale(1.08);
+        background: rgba(0, 0, 0, 0.8);
+      }
+
+      .process-header {
+        margin-bottom: 40px;
+      }
+
+      .process-header h1 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .process-header p {
+        max-width: 900px;
+        font-size: 15px;
+        opacity: 0.8;
+      }
+
+      /* Layout */
+      .process-content {
+        display: grid;
+        grid-template-columns: 1.2fr 2fr;
+        gap: 50px;
+        align-items: start;
+      }
+
+      /* Flow */
+      .process-flow {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+      }
+
+      /* Columns */
+      .flow-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .flow-column.center {
+        justify-content: center;
+      }
+
+      /* Titles & badges */
+      .flow-title {
+        background: #8f96b8;
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: 6px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .badge {
+        background: #8f96b8;
+        color: #fff;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      /* Boxes */
+      .flow-box {
+        background: #8b5c77;
+        color: #fff;
+        padding: 14px 16px;
+        width: 100%;
+        text-align: center;
+        border-radius: 6px;
+        font-size: 14px;
+        position: relative; /* for arrows */
+      }
+
+      .flow-box.small {
+        font-size: 13px;
+      }
+
+      .flow-box.highlight {
+        background: #7d87b9;
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .process-content {
+          grid-template-columns: 1fr;
+        }
+
+        .process-flow {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="process">
+      <header class="process-header">
+        <h1>New and Existing Projects</h1>
+        <p></p>
+      </header>
+
+      <div class="process-content">
+       
+        <div class="process-video" id="videoWrapper">
+          <video
+            id="processVideo"
+            muted
+            loop
+            preload="metadata"
+            poster="img/thumb.jpg"
+          >
+            <source src="img/logovd.mp4" type="video/mp4" />
+          </video>
+
+          <button class="play-btn" id="playBtn" aria-label="Play video">
+            ▶
+          </button>
+        </div>
+
+        <div class="process-flow">
+          <div class="flow-column">
+            <span class="badge">A</span>
+            <div class="flow-title">New Projects</div>
+
+            <div data-id="1" class="flow-box arrow-down">
+              Health Clinics<br />
+              <small>Lagos, Nigeria</small>
+            </div>
+            <div data-id="2" class="flow-box arrow-down">
+              Water Projects<br />
+              <small>Kampala, Uganda</small>
+            </div>
+            <div data-id="3" class="flow-box arrow-right">
+              Schools<br />
+              <small>Nairobi, Kenya</small>
+            </div>
+          </div>
+
+          <div data-id="4" class="flow-column center">
+            <span class="badge">B</span>
+            <div class="flow-title">Ongoing Projects</div>
+            <div data-id="4" class="flow-box arrow-down">
+              Nutrition<br />
+              <small>Accra, Ghana</small>
+            </div>
+            <div data-id="5" class="flow-box arrow-down">
+              Women Empowerment<br />
+              <small>Addis Ababa, Ethiopia</small>
+            </div>
+            <div data-id="6" class="flow-box small arrow-right">
+              Conservation<br />
+              Awareness Campaigns<br />
+              <small>Cape Town, South Africa</small>
+            </div>
+          </div>
+
+      
+          <div class="flow-column">
+            <span class="badge">B</span>
+            <div class="flow-title">Completed Projects</div>
+
+            <div data-id="7" class="flow-box arrow-down">
+              Refugee Aid<br />
+              <small>Dar es Salaam, Tanzania</small>
+            </div>
+            <div data-id="8" class="flow-box arrow-down">
+              Microfinance<br />
+              <small>Kigali, Rwanda</small>
+            </div>
+            <div data-id="9" class="flow-box highlight arrow-down">
+              COVID-19 Response<br />
+              <small>Lagos & Abuja, Nigeria</small>
+            </div>
+            <div data-id="10" class="flow-box">
+              Electrification<br />
+              <small>Niamey, Niger</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="popup-close">&times;</span>
+        <div class="popup-grid" id="popup-grid"></div>
+      </div>
+    </div>
+
+    <style>
+      .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .popup-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        max-width: 900px;
+        width: 90%;
+        height: 90%;
+      }
+
+      .popup-close {
+        float: right;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      .popup-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .popup-grid img,
+      .popup-grid iframe {
+        width: 100%;
+        border-radius: 8px;
+      }
+
+      .popup-grid iframe {
+        min-height: 200px;
+      }
+    </style>
+    <script>
+      const stepMedia = {
+        1: {
+          images: [
+            "https://via.placeholder.com/150/FF5733",
+            "https://via.placeholder.com/150/33FF57",
+          ],
+          video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        },
+        2: {
+          images: [
+            "https://via.placeholder.com/150/3357FF",
+            "https://via.placeholder.com/150/FF33A1",
+          ],
+          video: "https://www.youtube.com/embed/tgbNymZ7vqY",
+        },
+        3: {
+          images: [
+            "https://via.placeholder.com/150/FFFF33",
+            "https://via.placeholder.com/150/33FFFF",
+          ],
+          video: "https://www.youtube.com/embed/ysz5S6PUM-U",
+        },
+        4: {
+          images: ["https://via.placeholder.com/150/AA33FF"],
+          video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        },
+        5: {
+          images: ["https://via.placeholder.com/150/FFAA33"],
+          video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        },
+        6: {
+          images: [
+            "https://via.placeholder.com/150/33A1FF",
+            "https://via.placeholder.com/150/FF5733",
+          ],
+          video: "https://www.youtube.com/embed/tgbNymZ7vqY",
+        },
+        7: {
+          images: ["https://via.placeholder.com/150/FF33AA"],
+          video: "https://www.youtube.com/embed/ysz5S6PUM-U",
+        },
+        8: {
+          images: ["https://via.placeholder.com/150/33FFAA"],
+          video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        },
+        9: {
+          images: ["https://via.placeholder.com/150/AAFF33"],
+          video: "https://www.youtube.com/embed/ysz5S6PUM-U",
+        },
+        10: {
+          images: ["https://via.placeholder.com/150/FF3380"],
+          video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        },
+      };
+
+      const flowBoxes = document.querySelectorAll(".flow-box");
+      const popup = document.getElementById("popup");
+      const popupGrid = document.getElementById("popup-grid");
+      const closeBtn = document.querySelector(".popup-close");
+
+      flowBoxes.forEach((box) => {
+        box.addEventListener("click", () => {
+          const stepId = box.dataset.id;
+          const media = stepMedia[stepId];
+
+          if (!media) return;
+
+          popupGrid.innerHTML = "";
+
+          media.images.forEach((src) => {
+            const img = document.createElement("img");
+            img.src = src;
+            popupGrid.appendChild(img);
+          });
+
+          if (media.video) {
+            const iframe = document.createElement("iframe");
+            iframe.src = media.video;
+            iframe.title = "Step Video";
+            iframe.frameBorder = 0;
+            iframe.allow =
+              "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+            iframe.allowFullscreen = true;
+            popupGrid.appendChild(iframe);
+          }
+
+          popup.style.display = "flex";
+        });
+      });
+
+      closeBtn.addEventListener("click", () => {
+        popup.style.display = "none";
+      });
+
+      popup.addEventListener("click", (e) => {
+        if (e.target === popup) popup.style.display = "none";
+      });
+    </script>
+  </body>
+</html> -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SVG File Mask</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        background: #fff;
+      }
+
+      .hero {
+        display: flex;
+        align-items: center;
+        gap: 80px;
+        padding: 80px;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .image-wrapper {
+        width: 380px;
+        height: 380px;
+      }
+
+      .mask-svg {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transform: scale(0.85);
+        animation: reveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      @keyframes reveal {
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .image-wrapper:hover .masked-image {
+        mask: url(#mask-hover);
+      }
+
+      .content {
+        max-width: 480px;
+      }
+
+      .tagline {
+        color: #d4a23f;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      h1 {
+        font-size: 42px;
+        margin: 16px 0;
+      }
+
+      p {
+        color: #666;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="hero">
+      <div class="image-wrapper">
+        <svg viewBox="0 0 600 600" class="mask-svg">
+          <defs>
+            <!-- DEFAULT MASK -->
+            <mask
+              id="mask-default"
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+              width="600"
+              height="600"
+              maskContentUnits="userSpaceOnUse"
+              mask-type="alpha"
+            >
+              <image
+                href="img/mask-09.svg"
+                x="0"
+                y="0"
+                width="600"
+                height="600"
+                preserveAspectRatio="xMidYMid meet"
+              />
+            </mask>
+
+            <!-- HOVER MASK -->
+            <mask
+              id="mask-hover"
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+              width="600"
+              height="600"
+              maskContentUnits="userSpaceOnUse"
+              mask-type="alpha"
+            >
+              <image
+                href="img/mask-25.svg"
+                x="0"
+                y="0"
+                width="600"
+                height="600"
+                preserveAspectRatio="xMidYMid meet"
+              />
+            </mask>
+          </defs>
+
+          <image
+            href="https://www.safehavenforcats.org/wp-content/uploads/2020/07/Cats-in-Sunglasses-1080x640-1.jpg"
+            x="0"
+            y="0"
+            width="600"
+            height="600"
+            mask="url(#mask-default)"
+            preserveAspectRatio="xMidYMid slice"
+            class="masked-image"
+          />
+        </svg>
+      </div>
+
+      <div class="content">
+        <span class="tagline">Welcome to Charity</span>
+        <h1>You’re the Hope of Others.</h1>
+        <p>External SVG masking, done the right way.</p>
+      </div>
+    </section>
+  </body>
+</html>
